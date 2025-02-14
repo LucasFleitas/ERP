@@ -1,0 +1,29 @@
+package com.empresa.erp.inventarioservice.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
+
+import com.empresa.erp.crmservice.model.Cliente;
+import com.empresa.erp.inventarioservice.model.Producto;
+import com.empresa.erp.inventarioservice.repository.ProductoRepository;
+
+@Service
+public class ProductoService {
+    @Autowired
+    private ProductoRepository productoRepository;
+    
+    public List<Producto> obtenerProductos() {
+    	return productoRepository.findAll();
+    }
+    public Optional<Producto> obtenerClientePorId(Long id) {
+        return productoRepository.findById(id);
+    }
+}
+

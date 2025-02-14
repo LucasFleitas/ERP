@@ -1,0 +1,5 @@
+package com.empresa.erp.crmservice.model;
+
+public class Cliente {
+
+}

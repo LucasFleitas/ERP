@@ -1,0 +1,5 @@
+package com.empresa.erp.inventarioservice.model;
+
+public class Producto {
+
+}

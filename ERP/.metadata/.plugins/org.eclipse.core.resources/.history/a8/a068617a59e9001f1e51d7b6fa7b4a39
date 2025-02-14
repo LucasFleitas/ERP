@@ -1,0 +1,43 @@
+package com.empresa.erp.ventasservice.controller;
+
+import com.empresa.erp.ventasservice.model.Venta;
+import com.empresa.erp.ventasservice.service.VentaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+ 
+import java.util.List;
+import java.util.Optional;
+ 
+@RestController
+@RequestMapping("/ventas")
+public class VentaController {
+	@Autowired
+    private VentaService servicio;
+	
+    @GetMapping
+    public List<Venta> listarVentas() {
+        return servicio.obtenerVentas();
+    }
+ 
+    @GetMapping("/{id}")
+    public Optional<Venta> obtenerVenta(@PathVariable Long id) {
+        return servicio.obtenerVentasPorId(id);
+    }
+    
+    @PostMapping
+    public Venta crearVenta(@RequestBody Venta venta) {
+    	return servicio.guardarVenta(venta);
+    }
+    
+    @PutMapping
+    public Venta actualizarVenta(@PathVariable Long id, @RequestBody Venta venta){
+    	return servicio.actualizarVenta(id, venta);
+    }
+    
+    @DeleteMapping
+    public void eliminarVenta(@PathVariable Long id) {
+    	servicio.eliminarVenta(id);
+    }
+    
+}}

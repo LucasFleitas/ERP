@@ -1,0 +1,22 @@
+package com.empresa.erp.ventasservice.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.empresa.erp.ventasservice.model.Venta;
+import com.empresa.erp.ventasservice.repository.VentaRepository;
+
+public class VentaService {
+	@Autowired
+	private VentaRepository ventaRepository;
+	
+	public List<Venta> obtenerVentas() {
+		return ventaRepository.findAll();
+	}
+	public Optional<Venta> obtenerVentasPorId(Long id) {
+		return ventaRepository.findById(id);
+		
+	}
+}

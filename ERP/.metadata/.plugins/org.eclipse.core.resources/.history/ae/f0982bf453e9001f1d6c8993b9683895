@@ -1,0 +1,5 @@
+package com.empresa.erp.ventasservice.service;
+
+public class VentaService {
+
+}

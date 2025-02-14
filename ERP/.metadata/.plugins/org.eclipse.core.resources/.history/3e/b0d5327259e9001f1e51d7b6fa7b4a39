@@ -1,0 +1,5 @@
+package com.empresa.erp.ventasservice.controller;
+
+public class VentaController {
+
+}
