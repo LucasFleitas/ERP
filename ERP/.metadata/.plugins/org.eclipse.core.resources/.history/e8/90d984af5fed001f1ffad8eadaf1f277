@@ -1,0 +1,27 @@
+package com.empresa.erp.controller;
+
+import com.empresa.erp.inventarioservice.model.Producto;
+import com.empresa.erp.inventarioservice.service.ProductoService;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import java.util.List;
+
+@Controller
+@RequestMapping("/productos/view")
+public class ProductoController {
+
+    private final ProductoService servicio;
+
+    public ProductoController(ProductoService servicio) {
+        this.servicio = servicio;
+    }
+
+    @GetMapping
+    public String mostrarProductos(Model model) {
+        List<Producto> productos = servicio.obtenerProductos();
+        model.addAttribute("productos", productos);
+        return "productos";
+    }
+}

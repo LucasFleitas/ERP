@@ -19,7 +19,7 @@ import com.empresa.erp.crmservice.model.Cliente;
 import com.empresa.erp.crmservice.service.ClienteService;
 
 @RestController
-@RequestMapping("/clientes")
+@RequestMapping("/cliente")
 public class ClienteController {
 
     @Autowired

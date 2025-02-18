@@ -11,7 +11,7 @@ import com.empresa.erp.inventarioservice.model.Producto;
 import com.empresa.erp.inventarioservice.service.ProductoService;
 
 @RestController
-@RequestMapping("/productos")
+@RequestMapping("/producto")
 public class ProductoController {
 
     @Autowired

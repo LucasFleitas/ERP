@@ -1,0 +1,29 @@
+package com.empresa.erp.controller;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.empresa.erp.inventarioservice.model.Producto;
+import com.empresa.erp.inventarioservice.service.ProductoService;
+
+@Controller
+@RequestMapping("/productos/view")
+public class ProductoViewController {
+
+    private final ProductoService servicio;
+
+    public ProductoViewController(ProductoService servicio) {
+        this.servicio = servicio;
+    }
+
+    @GetMapping
+    public String mostrarProductos(Model model) {
+        List<Producto> productos = servicio.obtenerProductos();  // Recupera los productos
+        model.addAttribute("productos", productos);  // Añade los productos al modelo
+        return "redirect:/productos.html";  // Este es el nombre de la plantilla Thymeleaf (productos.html)
+    }
+}
